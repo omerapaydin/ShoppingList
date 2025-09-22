@@ -8,14 +8,16 @@ import FilterButtons from "./components/FilterButtons";
 import ListItems from "./components/ListItems";
 import ClearButton from "./components/ClearButton";
 function App() {
-  <div className="container">
-    <Header />
-    <AddItemForm />
-    <NoItem />
-    <FilterButtons />
-    <ListItems />
-    <ClearButton />
-  </div>;
+  return (
+    <div className="container">
+      <Header />
+      <AddItemForm />
+      <NoItem />
+      <FilterButtons />
+      <ListItems />
+      <ClearButton />
+    </div>
+  );
 }
 
 export default App;
