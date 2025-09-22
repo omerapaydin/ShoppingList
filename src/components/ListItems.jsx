@@ -1,12 +1,12 @@
 import Item from "./Item";
 
-export default function ListItems({ urunler }) {
+export default function ListItems({ items }) {
   return (
     <ul className="shopping-list list-unstyled">
-      {urunler.length > 0 ? (
-        urunler.map((i, index) => <Item key={index} urun={i} />)
+      {items.length > 0 ? (
+        items.map((i) => <Item key={i.id} urun={i} />)
       ) : (
-        <NoItems />
+        <li className="text-muted">Henüz ürün yok.</li>
       )}
     </ul>
   );
