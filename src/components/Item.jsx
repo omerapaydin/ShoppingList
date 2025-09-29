@@ -1,4 +1,17 @@
-export default function Item({ urun, onDeleteItem, onUpdateItem }) {
+export default function Item({
+  urun,
+  onDeleteItem,
+  onUpdateItem,
+  filterButton,
+}) {
+  if (filterButton == "incomplete" && urun.completed) {
+    return null;
+  }
+
+  if (filterButton == "completed" && !urun.completed) {
+    return null;
+  }
+
   return (
     <li className="border rounded p-2 mb-1 d-flex">
       <input

@@ -1,13 +1,30 @@
-export default function FilterButtons() {
+import { useState } from "react";
+
+export default function FilterButtons({ filterButton, setFilterButton }) {
   return (
-    <div className="filter-buttons border rounded p-3 mb-3">
-      <button item-filter="all" className="btn btn-primary me-1">
+    <div className="border rounded p-3 mb-3">
+      <button
+        className={`btn me-1 ${
+          filterButton == "all" ? "btn-primary" : "btn-secondary"
+        }`}
+        onClick={() => setFilterButton("all")}
+      >
         All
       </button>
-      <button item-filter="incomplete" className="btn btn-secondary me-1">
+      <button
+        className={`btn me-1 ${
+          filterButton == "incomplete" ? "btn-primary" : "btn-secondary"
+        }`}
+        onClick={() => setFilterButton("incomplete")}
+      >
         Incomplete
       </button>
-      <button item-filter="completed" className="btn btn-secondary">
+      <button
+        className={`btn me-1 ${
+          filterButton == "completed" ? "btn-primary" : "btn-secondary"
+        }`}
+        onClick={() => setFilterButton("completed")}
+      >
         Completed
       </button>
     </div>

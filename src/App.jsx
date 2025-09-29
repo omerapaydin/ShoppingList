@@ -18,9 +18,11 @@ const urunler = [
 
 function App() {
   const [items, setItems] = useState(urunler);
+  const [filterButton, setFilterButton] = useState("all");
 
   function handleAddItem(item) {
     setItems((items) => [...items, item]);
+    setFilterButton("all");
   }
 
   function handleDeleteItem(id) {
@@ -39,11 +41,15 @@ function App() {
     <div className="container">
       <Header />
       <AddItemForm onAddItem={handleAddItem} />
-      <FilterButtons />
+      <FilterButtons
+        filterButton={filterButton}
+        setFilterButton={setFilterButton}
+      />
       <ListItems
         items={items}
         onDeleteItem={handleDeleteItem}
         onUpdateItem={handleUpdateItem}
+        filterButton={filterButton}
       />
       <ClearButton />
     </div>
