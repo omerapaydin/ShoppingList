@@ -23,12 +23,16 @@ function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
   return (
     <div className="container">
       <Header />
       <AddItemForm onAddItem={handleAddItem} />
       <FilterButtons />
-      <ListItems items={items} />
+      <ListItems items={items} onDeleteItem={handleDeleteItem} />
       <ClearButton />
     </div>
   );

@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function AddItemForm({ onAddItem }) {
   const [name, setName] = useState("");
-  const [items, setItems] = useState([]);
 
   function handleFormSubmit(e) {
     e.preventDefault();
