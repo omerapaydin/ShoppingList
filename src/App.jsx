@@ -27,12 +27,24 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
+  function handleUpdateItem(id) {
+    const updatedItems = (items) =>
+      items.map((item) =>
+        item.id == id ? { ...item, completed: !item.completed } : item
+      );
+    setItems(updatedItems);
+  }
+
   return (
     <div className="container">
       <Header />
       <AddItemForm onAddItem={handleAddItem} />
       <FilterButtons />
-      <ListItems items={items} onDeleteItem={handleDeleteItem} />
+      <ListItems
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onUpdateItem={handleUpdateItem}
+      />
       <ClearButton />
     </div>
   );
